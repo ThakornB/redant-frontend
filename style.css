@@ -361,29 +361,105 @@ header {
     position: relative;
 }
 
+/* ── Fantasy Story Card — cycling background images ── */
 .hero-card-preview {
     width: 200px;
-    height: 260px;
-    background: linear-gradient(135deg, #FFE8D6 0%, #FFDAB5 100%);
+    height: 280px;
     border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(255, 126, 39, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
+    /* clip images to card shape */
     animation: float 4s ease-in-out infinite;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
+/* Dark gradient overlay — makes it feel like a novel cover */
+.hero-card-preview::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg,
+            transparent 35%,
+            rgba(0, 0, 0, 0.55) 100%);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+}
+
+/* Image layer 1 (base) — magical forest */
+.preview-img {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: inherit;
+    animation: fantasy-fade 15s ease-in-out infinite 0s;
+}
+
+/* Image layer 2 — cosmic / space warrior */
 .preview-img::before {
-    content: '🐜';
-    font-size: 64px;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1446776877081-d282a0f896e2?q=80&w=400&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: inherit;
+    animation: fantasy-fade 15s ease-in-out infinite 5s;
+    opacity: 0;
 }
 
+/* Image layer 3 — dark gothic castle */
+.preview-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=400&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: inherit;
+    animation: fantasy-fade 15s ease-in-out infinite 10s;
+    opacity: 0;
+}
+
+/* Staggered cross-fade: each image fades in, holds, fades out */
+@keyframes fantasy-fade {
+    0% {
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    /* fade in */
+    30% {
+        opacity: 1;
+    }
+
+    /* hold */
+    40% {
+        opacity: 0;
+    }
+
+    /* fade out */
+    100% {
+        opacity: 0;
+    }
+
+    /* stay off until next cycle */
+}
+
+/* Sparkles float above the images */
 .preview-sparkle {
     position: absolute;
     font-size: 20px;
+    z-index: 2;
+    /* above image layers */
     animation: sparkle 3s ease-in-out infinite;
 }
 
@@ -435,6 +511,8 @@ header {
    CATALOG SECTION
 ════════════════════════════════════════════ */
 .catalog-section {
+    scroll-margin-top: 72px;
+    /* offset for sticky header */
     padding: 44px 0 72px;
 }
 
@@ -800,50 +878,100 @@ header {
     transform: scale(0.95);
 }
 
-/* Scene image */
+/* Scene image — cinematic */
 .scene-img-container {
     width: 100%;
     aspect-ratio: 16/9;
-    border-radius: 14px;
+    border-radius: 18px;
     overflow: hidden;
-    background: var(--bg-tag);
+    background: #0a0a0a;
     margin-bottom: 32px;
-    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.10);
+    position: relative;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.07),
+        0 12px 40px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+/* Gradient fade at the bottom so text feels grounded */
+.scene-img-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 55%,
+            rgba(0, 0, 0, 0.35) 100%);
+    pointer-events: none;
+    border-radius: inherit;
 }
 
 .scene-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.7s ease;
+    transition: opacity 0.7s ease, transform 8s ease;
+    display: block;
 }
 
 .scene-img[src]:not([src=""]) {
-    animation: img-reveal 0.65s ease both;
+    animation: img-reveal 0.8s ease both;
+}
+
+/* Subtle Ken Burns drift while reading */
+.scene-img[src]:not([src=""]) {
+    animation: img-reveal 0.8s ease both, ken-burns 18s ease-in-out infinite alternate;
 }
 
 @keyframes img-reveal {
     from {
-        filter: blur(8px);
+        filter: blur(12px);
         opacity: 0;
+        transform: scale(1.04);
     }
 
     to {
         filter: blur(0);
         opacity: 1;
+        transform: scale(1);
     }
 }
 
-/* Story text */
+@keyframes ken-burns {
+    from {
+        transform: scale(1.00);
+    }
+
+    to {
+        transform: scale(1.06);
+    }
+}
+
+/* Story text — premium glass panel */
 .story-display {
-    font-size: 1.12rem;
-    line-height: 1.9;
+    font-size: 1.13rem;
+    line-height: 2.0;
     color: var(--text-body);
     margin-bottom: 32px;
     min-height: 60px;
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     animation: content-fade 0.5s ease both;
+
+    /* Glass-plate effect */
+    background: rgba(255, 253, 248, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 126, 39, 0.10);
+    border-radius: 14px;
+    padding: 22px 26px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .story-display {
+    background: rgba(30, 26, 20, 0.70);
+    border-color: rgba(255, 126, 39, 0.12);
+    color: #E8E0D5;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 @keyframes content-fade {
@@ -880,45 +1008,174 @@ header {
     background: var(--bg-card);
     border: 1.5px solid var(--border);
     color: var(--text-head);
-    padding: 15px 20px 15px 44px;
-    border-radius: 14px;
+    /* Extra left padding for the accent bar */
+    padding: 16px 22px 16px 48px;
+    border-radius: 16px;
     font-size: 14.5px;
     font-weight: 600;
     font-family: 'Noto Sans Thai', 'Inter', sans-serif;
     cursor: pointer;
     text-align: left;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
-    transition: background var(--speed), border-color var(--speed),
-        transform 0.2s cubic-bezier(.22, 1, .36, 1), box-shadow var(--speed);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition:
+        background var(--speed),
+        border-color var(--speed),
+        color var(--speed),
+        transform 0.22s cubic-bezier(.22, 1, .36, 1),
+        box-shadow 0.22s;
     animation: content-fade 0.4s ease both;
 }
 
+/* Left accent bar */
 .choice-btn::before {
     content: '';
     position: absolute;
-    left: 14px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%) scaleY(0);
     width: 3px;
-    height: 60%;
-    background: var(--brand);
+    height: 55%;
+    background: linear-gradient(to bottom, var(--brand), var(--brand-dark));
     border-radius: 99px;
-    transition: transform 0.2s cubic-bezier(.22, 1, .36, 1);
+    transition: transform 0.22s cubic-bezier(.22, 1, .36, 1);
 }
 
 .choice-btn:hover::before {
     transform: translateY(-50%) scaleY(1);
 }
 
+/* Light-mode hover */
 .choice-btn:hover {
     border-color: var(--brand);
     background: var(--brand-light);
-    transform: translateX(5px);
-    box-shadow: 0 4px 18px var(--brand-glow), -3px 0 0 var(--brand);
+    color: #1A1A1A;
+    transform: translateX(6px);
+    box-shadow:
+        0 6px 24px var(--brand-glow),
+        -3px 0 0 var(--brand),
+        0 0 0 1px rgba(255, 126, 39, 0.15);
+}
+
+/* ── DARK MODE hover contrast fix ── */
+[data-theme="dark"] .choice-btn {
+    background: #282420;
+    border-color: #3a3530;
+    color: #E8E0D5;
+}
+
+[data-theme="dark"] .choice-btn:hover {
+    background: #3a2e1e;
+    border-color: var(--brand);
+    color: #F5EDE0;
+    box-shadow:
+        0 6px 28px rgba(255, 126, 39, 0.22),
+        -3px 0 0 var(--brand);
 }
 
 .choice-btn:active {
-    transform: translateX(3px) scale(0.99);
+    transform: translateX(3px) scale(0.98);
+    box-shadow: 0 2px 8px var(--brand-glow);
+}
+
+/* ════════════════════════════════════════════
+   PERSONALITY STAT BARS (end-of-game)
+════════════════════════════════════════════ */
+.stats-container {
+    background: var(--brand-light);
+    border: 1px solid rgba(255, 126, 39, 0.18);
+    border-radius: 16px;
+    padding: 20px 22px 18px;
+    animation: content-fade 0.5s ease both;
+}
+
+.stats-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--brand-dark);
+    margin-bottom: 18px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.stat-row {
+    margin-bottom: 14px;
+}
+
+.stat-row:last-child {
+    margin-bottom: 0;
+}
+
+.stat-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+}
+
+.stat-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-head);
+}
+
+.stat-pct {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--brand);
+    min-width: 36px;
+    text-align: right;
+}
+
+.stat-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    width: 0%;
+    /* starts at 0, JS sets target */
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--brand) 0%, var(--brand-dark) 100%);
+    transition: width 1s cubic-bezier(.22, 1, .36, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer sweep on the fill bar */
+.stat-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 100%);
+    animation: stat-shimmer 2.5s ease-in-out infinite 1s;
+}
+
+@keyframes stat-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(250%);
+    }
+}
+
+/* Dark mode stat container */
+[data-theme="dark"] .stats-container {
+    background: rgba(255, 126, 39, 0.08);
+    border-color: rgba(255, 126, 39, 0.2);
+}
+
+[data-theme="dark"] .stat-track {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Loading overlay */

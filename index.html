@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Ant AI — สร้างนิทาน AI</title>
     <meta name="description" content="Red Ant AI — แพลตฟอร์มสร้างนิทานด้วย AI พร้อมภาพและเสียงพากย์อัตโนมัติ">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,7 +24,7 @@
 
             <nav class="header-nav">
                 <a href="#" class="nav-link active">หน้าหลัก</a>
-                <a href="#" class="nav-link">นิทานทั้งหมด</a>
+                <a href="#catalog-section" class="nav-link">นิทานทั้งหมด</a>
                 <a href="#" class="nav-link">เกี่ยวกับ</a>
             </nav>
 
@@ -41,7 +43,8 @@
                 <div class="hero-text">
                     <p class="hero-eyebrow">✨ AI Storytelling Platform</p>
                     <h1 class="hero-title">สร้างนิทานในแบบของคุณ<br>ด้วยพลัง AI</h1>
-                    <p class="hero-sub">พิมพ์ธีมที่ต้องการ แล้วปล่อยให้ AI สร้างโลกแห่งจินตนาการพร้อมภาพและเสียงพากย์</p>
+                    <p class="hero-sub">พิมพ์ธีมที่ต้องการ แล้วปล่อยให้ AI สร้างโลกแห่งจินตนาการพร้อมภาพและเสียงพากย์
+                    </p>
 
                     <div class="create-row">
                         <input type="text" id="custom-theme" class="custom-input"
@@ -70,13 +73,13 @@
 
         <!-- CATALOG -->
         <div class="main-container">
-            <section class="catalog-section">
+            <section class="catalog-section" id="catalog-section">
 
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="section-title-icon">📚</span> นิทานแนะนำ
                     </h2>
-                    <a href="#" class="view-all-link">ดูทั้งหมด →</a>
+                    <a href="#catalog-section" class="view-all-link">ดูทั้งหมด →</a>
                 </div>
 
                 <!-- FILTER BAR -->
@@ -103,15 +106,22 @@
                             <h3>การผจญภัยในป่าเวทมนตร์</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">แฟนตาซี</span>
-                                <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'ป่าเวทมนตร์')">โหมด AI ✦</button>
+                                <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'ป่าเวทมนตร์')">โหมด
+                                    AI ✦</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     8.5k
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     15.2k
                                 </span>
                             </div>
@@ -129,15 +139,22 @@
                             <h3>ตำนานมดแดงยอดกตัญญู</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">ผจญภัย</span>
-                                <button class="story-mode-badge offline" onclick="startGame('OFFLINE', 'มดแดงยอดกตัญญู')">ออฟไลน์</button>
+                                <button class="story-mode-badge offline"
+                                    onclick="startGame('OFFLINE', 'มดแดงยอดกตัญญู')">ออฟไลน์</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     2.1k
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     8.7k
                                 </span>
                             </div>
@@ -156,15 +173,22 @@
                             <h3>มดแดงนักรบในอวกาศ</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">ไซ-ไฟ</span>
-                                <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'มดแดงนักรบในอวกาศ')">โหมด AI ✦</button>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'มดแดงนักรบในอวกาศ')">โหมด AI ✦</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     5.3k
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     22.1k
                                 </span>
                             </div>
@@ -183,15 +207,22 @@
                             <h3>รักแรกพบในสวนซากุระ</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">โรแมนซ์</span>
-                                <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'รักแรกพบในสวนซากุระ')">โหมด AI ✦</button>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'รักแรกพบในสวนซากุระ')">โหมด AI ✦</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     12.4k
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     48.9k
                                 </span>
                             </div>
@@ -209,15 +240,22 @@
                             <h3>คืนสยองในคฤหาสน์ร้าง</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">สยองขวัญ</span>
-                                <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'คฤหาสน์ร้างสยองขวัญ')">โหมด AI ✦</button>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'คฤหาสน์ร้างสยองขวัญ')">โหมด AI ✦</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     980
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     4.1k
                                 </span>
                             </div>
@@ -235,15 +273,22 @@
                             <h3>ผจญภัยในเกาะสมบัติแห่งทะเลใต้</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">ผจญภัย</span>
-                                <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'ผจญภัยในเกาะสมบัติ')">โหมด AI ✦</button>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'ผจญภัยในเกาะสมบัติ')">โหมด AI ✦</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     3.7k
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     14.3k
                                 </span>
                             </div>
@@ -261,15 +306,22 @@
                             <h3>มดตลกกับเพื่อนซี้ผีเสื้อ</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">ตลก</span>
-                                <button class="story-mode-badge offline" onclick="startGame('AI_STORY', 'มดตลกกับผีเสื้อ')">ออฟไลน์</button>
+                                <button class="story-mode-badge offline"
+                                    onclick="startGame('AI_STORY', 'มดตลกกับผีเสื้อ')">ออฟไลน์</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     340
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     1.8k
                                 </span>
                             </div>
@@ -287,16 +339,358 @@
                             <h3>อัศวินมังกรแห่งอาณาจักรลับ</h3>
                             <div class="story-tags">
                                 <span class="tag tag-genre">แฟนตาซี</span>
-                                <button class="story-mode-badge offline" onclick="startGame('AI_STORY', 'อัศวินมังกร')">ออฟไลน์</button>
+                                <button class="story-mode-badge offline"
+                                    onclick="startGame('AI_STORY', 'อัศวินมังกร')">ออฟไลน์</button>
                             </div>
                             <div class="card-stats">
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
                                     1.2k
                                 </span>
                                 <span class="stat-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
                                     6.5k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9: Mystery / AI ★ NEW -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'นักสืบแห่งเมืองฝน')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>นักสืบแห่งเมืองฝน</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">สืบสวน</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'นักสืบแห่งเมืองฝน')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    7.1k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    29.4k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10: Sci-Fi / AI -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'มนุษย์ครึ่งเครื่องจักร')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>มนุษย์ครึ่งเครื่องจักร</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">ไซ-ไฟ</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'มนุษย์ครึ่งเครื่องจักร')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    4.8k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    18.2k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11: Survival / AI ★ NEW -->
+                    <div class="story-card" data-category="ai adventure">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'เอาชีวิตรอดในป่าดึกดำบรรพ์')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>เอาชีวิตรอดในป่าดึกดำบรรพ์</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">เอาชีวิตรอด</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'เอาชีวิตรอดในป่าดึกดำบรรพ์')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    9.3k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    33.7k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12: Romance / Offline -->
+                    <div class="story-card" data-category="offline">
+                        <div class="story-img-wrap" onclick="startGame('OFFLINE', 'จดหมายรักข้ามเวลา')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1474552226712-ac0f0961a954?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>จดหมายรักข้ามเวลา</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">โรแมนซ์</span>
+                                <button class="story-mode-badge offline"
+                                    onclick="startGame('OFFLINE', 'จดหมายรักข้ามเวลา')">ออฟไลน์</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    16.5k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    51.2k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13: Horror / AI -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'วิญญาณในตึกร้าง')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>วิญญาณในตึกร้าง</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">สยองขวัญ</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'วิญญาณในตึกร้าง')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    2.7k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    11.8k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14: Fantasy / AI ★ NEW -->
+                    <div class="story-card" data-category="ai fantasy">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'เทพธิดาแห่งสายน้ำ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>เทพธิดาแห่งสายน้ำ</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">แฟนตาซี</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'เทพธิดาแห่งสายน้ำ')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    11.2k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    44.6k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 15: Comedy / AI -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'หมาแมวพิชิตโลก')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>หมาแมวพิชิตโลก</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">ตลก</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'หมาแมวพิชิตโลก')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    450
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    3.2k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 16: Adventure / Offline -->
+                    <div class="story-card" data-category="offline adventure">
+                        <div class="story-img-wrap" onclick="startGame('OFFLINE', 'โจรสลัดสาวแห่งทะเลตะวันออก')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>โจรสลัดสาวแห่งทะเลตะวันออก</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">ผจญภัย</span>
+                                <button class="story-mode-badge offline"
+                                    onclick="startGame('OFFLINE', 'โจรสลัดสาวแห่งทะเลตะวันออก')">ออฟไลน์</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    6.0k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    23.9k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 17: Mystery / Offline ★ NEW -->
+                    <div class="story-card" data-category="offline">
+                        <div class="story-img-wrap" onclick="startGame('OFFLINE', 'ความลับของคฤหาสน์โบราณ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>ความลับของคฤหาสน์โบราณ</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">สืบสวน</span>
+                                <button class="story-mode-badge offline"
+                                    onclick="startGame('OFFLINE', 'ความลับของคฤหาสน์โบราณ')">ออฟไลน์</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    830
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    5.4k
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 18: Sci-Fi / AI ★ NEW -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'โลกหลังหายนะนิวเคลียร์')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>โลกหลังหายนะนิวเคลียร์</h3>
+                            <div class="story-tags">
+                                <span class="tag tag-genre">ไซ-ไฟ</span>
+                                <button class="story-mode-badge ai"
+                                    onclick="startGame('AI_STORY', 'โลกหลังหายนะนิวเคลียร์')">โหมด AI ✦</button>
+                            </div>
+                            <div class="card-stats">
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    12.8k
+                                </span>
+                                <span class="stat-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                    </svg>
+                                    38.1k
                                 </span>
                             </div>
                         </div>

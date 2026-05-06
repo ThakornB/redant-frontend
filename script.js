@@ -95,7 +95,8 @@ async function processTurn(action) {
             currentHistory += `Action: ${action}\nStory: ${data.story}\n`;
             turnCount++;
         } catch (e) {
-            alert("หลังบ้านพังว่ะ! อย่าลืมรัน node server.js นะ");
+            document.getElementById('story-display').innerHTML = "<span style='color: red;'>เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์ กรุณาลองใหม่</span>";
+            document.getElementById('choice-list').innerHTML = "";
             overlay.style.display = 'none';
             return;
         }
@@ -149,7 +150,44 @@ function renderStory(data) {
     choiceBox.innerHTML = '';
 
     if (data.is_ending) {
-        choiceBox.innerHTML = `<button class="choice-btn" style="text-align:center;" onclick="exitGame()">🏠 จบนิทาน (กลับหน้าหลัก)</button>`;
+        // Build personality stat bars if AI returned stats
+        if (data.stats && Array.isArray(data.stats) && data.stats.length > 0) {
+            const statsHTML = `
+                <div class="stats-container">
+                    <p class="stats-title">✨ บุคลิกภาพของคุณ</p>
+                    ${data.stats.map(s => `
+                        <div class="stat-row">
+                            <div class="stat-label-row">
+                                <span class="stat-name">${s.trait}</span>
+                                <span class="stat-pct">${s.value}%</span>
+                            </div>
+                            <div class="stat-track">
+                                <div class="stat-fill" data-value="${s.value}"></div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>`;
+            choiceBox.innerHTML = statsHTML;
+
+            // Trigger the bar animations after a short delay (allows CSS transition to play)
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    choiceBox.querySelectorAll('.stat-fill').forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-value') + '%';
+                    });
+                });
+            });
+        }
+
+        // Append exit button below the stats
+        const exitBtn = document.createElement('button');
+        exitBtn.className = 'choice-btn';
+        exitBtn.style.textAlign = 'center';
+        exitBtn.style.marginTop = data.stats ? '20px' : '0';
+        exitBtn.innerHTML = '🏠 จบนิทาน (กลับหน้าหลัก)';
+        exitBtn.onclick = exitGame;
+        choiceBox.appendChild(exitBtn);
+
     } else {
         const choices = data.choices || [];
         choices.forEach(c => {
