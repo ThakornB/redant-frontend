@@ -1,0 +1,950 @@
+/* ── CSS VARIABLES ── */
+:root {
+    --bg-page: #ffffff;
+    --bg-header: #ffffff;
+    --bg-card: #ffffff;
+    --bg-game: #f7f7f8;
+    --bg-input: #ffffff;
+    --bg-filter-off: #f2f2f2;
+    --bg-filter-hov: #e6e6e6;
+    --bg-loading: rgba(255, 255, 255, 0.92);
+    --text-primary: #111111;
+    --text-body: #1a1a1a;
+    --text-story: #2c2c2c;
+    --text-muted: #777777;
+    --text-subtle: #999999;
+    --text-likes: #888888;
+    --border-main: #ebebeb;
+    --border-input: #d0d0d0;
+    --border-choice: #e0e0e0;
+    --spinner-track: #ebebeb;
+    --scene-bg: #eeeeee;
+    --brand: #e53935;
+    --brand-hover: #c62828;
+    --brand-glow: rgba(229, 57, 53, 0.28);
+    --toggle-icon: '🌙';
+}
+
+[data-theme="dark"] {
+    --bg-page: #0f0f0f;
+    --bg-header: #161616;
+    --bg-card: #1c1c1c;
+    --bg-game: #0a0a0a;
+    --bg-input: #242424;
+    --bg-filter-off: #2a2a2a;
+    --bg-filter-hov: #333333;
+    --bg-loading: rgba(15, 15, 15, 0.92);
+    --text-primary: #f0f0f0;
+    --text-body: #dddddd;
+    --text-story: #e8e4dc;
+    --text-muted: #888888;
+    --text-subtle: #666666;
+    --text-likes: #aaaaaa;
+    --border-main: #2a2a2a;
+    --border-input: #3a3a3a;
+    --border-choice: #2e2e2e;
+    --spinner-track: #2a2a2a;
+    --scene-bg: #222222;
+    --brand: #ef5350;
+    --brand-hover: #e53935;
+    --brand-glow: rgba(239, 83, 80, 0.35);
+    --toggle-icon: '☀️';
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ── HEADER ── */
+header {
+    padding: 0 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border-main);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-input);
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-filter-off);
+    transform: scale(1.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo-badge {
+    width: 36px;
+    height: 36px;
+    background: #e53935;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.logo-text {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+/* ── MAIN CONTAINER ── */
+.main-container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── CREATE SECTION (hero + input) ── */
+.create-section {
+    padding: 52px 0 40px;
+    border-bottom: 1px solid var(--border-main);
+}
+
+.create-section .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin-bottom: 10px;
+}
+
+.create-section h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.create-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    max-width: 680px;
+}
+
+.custom-input {
+    flex: 1;
+    height: 52px;
+    padding: 0 24px;
+    border: 2px solid var(--border-input);
+    border-radius: 50px;
+    font-size: 15px;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    outline: none;
+    background: var(--bg-input);
+    color: var(--text-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    transition: border-color 0.2s, background 0.3s, box-shadow 0.2s;
+}
+
+.custom-input:focus {
+    border-color: var(--brand);
+    background: var(--bg-input);
+    box-shadow: 0 0 0 4px var(--brand-glow), 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.custom-input::placeholder {
+    color: var(--text-subtle);
+}
+
+.play-btn {
+    height: 52px;
+    padding: 0 32px;
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 700;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 18px var(--brand-glow);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.play-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.15s;
+}
+
+.play-btn:hover {
+    background: var(--brand-hover);
+    transform: scale(1.04);
+    box-shadow: 0 8px 28px var(--brand-glow);
+}
+
+.play-btn:hover::after {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.play-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px var(--brand-glow);
+}
+
+.voice-control {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.voice-control input[type=checkbox] {
+    accent-color: var(--text-primary);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.voice-control label {
+    cursor: pointer;
+}
+
+/* ── CATALOG SECTION ── */
+.catalog-section {
+    padding: 44px 0 64px;
+}
+
+.section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+/* ── PILL FILTER BUTTONS ── */
+.filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.filter-btn {
+    height: 34px;
+    padding: 0 18px;
+    border-radius: 50px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.filter-btn:active {
+    transform: scale(0.95);
+}
+
+.filter-btn.active {
+    background: var(--text-primary);
+    color: var(--bg-page);
+}
+
+.filter-btn:not(.active) {
+    background: var(--bg-filter-off);
+    color: var(--text-primary);
+}
+
+.filter-btn:not(.active):hover {
+    background: var(--bg-filter-hov);
+}
+
+/* ── STORY GRID ── */
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px 16px;
+}
+
+.story-card {
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(.22, 1, .36, 1);
+}
+
+.story-card:hover {
+    transform: translateY(-6px);
+}
+
+.story-card:hover .story-img {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+    transform: scale(1.03);
+}
+
+.story-img-wrap {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.story-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-filter-off);
+    border-radius: 6px;
+    transition: box-shadow 0.28s, transform 0.28s cubic-bezier(.22, 1, .36, 1);
+}
+
+.new-badge {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    line-height: 1.4;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    box-shadow: 0 2px 8px rgba(229, 57, 53, 0.4);
+}
+
+.story-meta {
+    padding: 10px 2px 0;
+}
+
+.story-meta h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.story-mode-badge {
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    transition: background 0.18s;
+}
+
+.story-mode-badge.ai {
+    background: var(--text-primary);
+    color: var(--bg-page);
+}
+
+.story-mode-badge.ai:hover {
+    opacity: 0.85;
+}
+
+.story-mode-badge.offline {
+    background: var(--bg-filter-off);
+    color: var(--text-primary);
+}
+
+.story-mode-badge.offline:hover {
+    background: var(--bg-filter-hov);
+}
+
+/* ── LIKES COUNTER ── */
+.card-likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 9px;
+    font-size: 12px;
+    color: var(--text-likes);
+    font-weight: 600;
+}
+
+.card-likes svg {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+}
+
+/* ── CARD HIDE (filter) ── */
+.story-card.hidden {
+    display: none;
+}
+
+/* ── GAME VIEW ── */
+#game-view {
+    display: none;
+    background: var(--bg-game);
+    min-height: calc(100vh - 56px);
+    padding: 48px 24px 100px;
+    transition: background 0.3s;
+}
+
+.game-panel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 40px 44px 48px;
+    border: 1px solid var(--border-main);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, .05);
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-main);
+}
+
+#game-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.4px;
+}
+
+.exit-btn {
+    height: 34px;
+    padding: 0 18px;
+    border: 1.5px solid var(--border-input);
+    border-radius: 50px;
+    background: var(--bg-card);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    transition: border-color 0.18s, color 0.18s, background 0.3s;
+}
+
+.exit-btn:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+.scene-img-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--scene-bg);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, .12);
+}
+
+.scene-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.7s ease;
+}
+
+.story-display {
+    font-size: 1.18rem;
+    line-height: 2;
+    color: var(--text-story);
+    margin-bottom: 36px;
+    min-height: 60px;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    animation: content-fade-in 0.55s ease both;
+}
+
+@keyframes content-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── CHOICE SECTION LABEL ── */
+.choice-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin-bottom: 12px;
+}
+
+.choice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.choice-btn {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-choice);
+    color: var(--text-primary);
+    padding: 15px 20px 15px 44px;
+    border-radius: 14px;
+    font-size: 14.5px;
+    font-weight: 600;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    transition: background 0.22s, border-color 0.22s, color 0.22s,
+        transform 0.2s cubic-bezier(.22, 1, .36, 1), box-shadow 0.22s,
+        padding-left 0.2s cubic-bezier(.22, 1, .36, 1);
+    animation: content-fade-in 0.4s ease both;
+}
+
+.choice-btn:hover {
+    background: var(--bg-card);
+    border-color: var(--brand);
+    color: var(--text-primary);
+    transform: translateX(6px);
+    box-shadow: 0 4px 20px rgba(229, 57, 53, 0.12), -3px 0 0 var(--brand);
+    padding-left: 52px;
+}
+
+.choice-btn:active {
+    transform: translateX(3px) scale(0.99);
+}
+
+/* ── LOADING ── */
+#loading-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: var(--bg-loading);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    z-index: 50;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--spinner-track);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#loading-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* ── FOOTER ── */
+footer {
+    background: var(--text-primary);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    transition: background 0.3s;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+    header {
+        padding: 0 16px;
+    }
+
+    .main-container {
+        padding: 0 16px;
+    }
+
+    .create-section {
+        padding: 36px 0 32px;
+    }
+
+    .create-section h1 {
+        font-size: 22px;
+    }
+
+    .create-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .play-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .story-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px 10px;
+    }
+
+    #game-view {
+        padding: 24px 16px 60px;
+    }
+
+    .game-panel {
+        padding: 24px 20px 32px;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   PREMIUM POLISH LAYER
+───────────────────────────────────────────────── */
+
+/* 1. Custom scrollbar — Webkit */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-input);
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-subtle);
+}
+
+/* 2. Focus-visible rings — accessibility */
+:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 3px;
+}
+
+/* 3. Logo hover micro-animation */
+.logo {
+    transition: opacity 0.18s;
+}
+
+.logo:hover {
+    opacity: 0.75;
+}
+
+/* 4. Animated section label dot */
+.section-label::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #e53935;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.65);
+    }
+}
+
+/* 5. Custom input focus glow */
+.custom-input:focus {
+    border-color: var(--text-primary);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .custom-input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.07);
+}
+
+/* 6. Story image shimmer while loading */
+.story-img[style*="url"] {
+    animation: none;
+}
+
+.story-img:not([style*="url"]) {
+    background: linear-gradient(90deg,
+            var(--bg-filter-off) 25%,
+            var(--bg-filter-hov) 50%,
+            var(--bg-filter-off) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* 7. Choice button left-bar accent on hover */
+.choice-btn {
+    position: relative;
+    padding-left: 28px;
+}
+
+.choice-btn::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 3px;
+    height: 60%;
+    background: #e53935;
+    border-radius: 99px;
+    transition: transform 0.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.choice-btn:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+.choice-btn:hover {
+    padding-left: 36px;
+}
+
+/* 8. Game panel fade-in on entry */
+@keyframes panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-panel {
+    animation: panel-in 0.4s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* 9. Scene image reveal pulse */
+@keyframes img-reveal {
+    from {
+        filter: blur(8px);
+        opacity: 0;
+    }
+
+    to {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.scene-img[src]:not([src=""]) {
+    animation: img-reveal 0.7s ease both;
+}
+
+/* 10. Header scroll shadow (always-on subtle elevation) */
+header {
+    box-shadow: 0 1px 0 var(--border-main),
+        0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* 11. Theme toggle spin on hover */
+.theme-toggle:hover {
+    transform: scale(1.12) rotate(12deg);
+}
+
+/* 12. Card hover — title color lift */
+.story-card:hover .story-meta h3 {
+    color: #e53935;
+}
+
+/* 13. Story-mode-badge scale press */
+.story-mode-badge:active {
+    transform: scale(0.93);
+}
+
+/* 14. Exit button tap feedback */
+.exit-btn:active {
+    transform: scale(0.95);
+}
+
+/* 15. Smooth game-view background transition */
+#game-view {
+    transition: background 0.4s;
+}
+
+/* ═══════════════════════════════════════════════════
+   ✦ UX / UI POLISH LAYER — Safe Mode (CSS-Only)
+═══════════════════════════════════════════════════ */
+
+/* 1. Story text readability */
+.story-display {
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: #EAEAEA;
+}
+[data-theme="dark"] .story-display {
+    color: #EAEAEA;
+}
+/* Light-mode contrast: use a deep charcoal instead of harsh black */
+:root:not([data-theme="dark"]) .story-display {
+    color: #2c2c2c;
+}
+
+/* 2. Choice buttons — enhanced hover with scale + brand border glow */
+/* Enhanced hover — scale + stronger brand glow */
+.choice-btn:hover {
+    transform: translateX(4px) scale(1.018);
+    box-shadow: 0 6px 28px rgba(229, 57, 53, 0.22),
+                -4px 0 0 var(--brand),
+                0 0 0 2px rgba(229, 57, 53, 0.18);
+    border-color: var(--brand);
+}
+
+/* 3. Input field — lighter/visible border on both themes */
+.custom-input {
+    border-color: #b0b0b0;
+}
+[data-theme="dark"] .custom-input {
+    background: #2e2e2e;
+    border-color: #505050;
+}
+
+/* 4. Brand accent color for .new-badge and .play-btn */
+.new-badge {
+    background: #FF4B4B;
+    box-shadow: 0 2px 10px rgba(255, 75, 75, 0.45);
+}
+.play-btn {
+    background: #FF4B4B;
+    box-shadow: 0 4px 20px rgba(255, 75, 75, 0.4);
+}
+.play-btn:hover {
+    background: #e63939;
+    box-shadow: 0 8px 32px rgba(255, 75, 75, 0.55);
+}
+.play-btn:active {
+    background: #cc2e2e;
+    box-shadow: 0 2px 10px rgba(255, 75, 75, 0.3);
+}
+
+/* 5. Hero title — significantly larger + CTA glow drop-shadow */
+.create-section h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+}
+@media (max-width: 640px) {
+    .create-section h1 {
+        font-size: clamp(1.9rem, 8vw, 2.8rem);
+    }
+}
+.play-btn {
+    filter: drop-shadow(0 4px 16px rgba(255, 75, 75, 0.45));
+}
+.play-btn:hover {
+    filter: drop-shadow(0 8px 28px rgba(255, 75, 75, 0.65));
+}

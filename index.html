@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Ant AI - AI Storytelling Platform</title>
+    <meta name="description" content="Red Ant AI — แพลตฟอร์มสร้างนิทานเสียงด้วย AI พร้อมภาพและเสียงพากย์อัตโนมัติ">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo" onclick="exitGame()">
+            <div class="logo-badge">🐜</div>
+            <span class="logo-text">Red Ant AI</span>
+        </div>
+        <button id="theme-toggle-btn" class="theme-toggle" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <div id="home-view">
+
+        <!-- CREATE / CUSTOM STORY -->
+        <div class="main-container">
+            <div class="create-section">
+                <p class="section-label">AI Storytelling</p>
+                <h1>สร้างนิทานในแบบของคุณ</h1>
+                <div class="create-row">
+                    <input type="text" id="custom-theme" class="custom-input"
+                        placeholder="เช่น มดแดงนักรบในอวกาศ, ผจญภัยในเกาะสมบัติ">
+                    <button class="play-btn" onclick="startCustomGame()">เริ่มเลย</button>
+                </div>
+                <div class="voice-control">
+                    <input type="checkbox" id="voice-toggle" checked>
+                    <label for="voice-toggle">🔊 เปิดเสียงพากย์</label>
+                </div>
+            </div>
+
+            <!-- CATALOG -->
+            <section class="catalog-section">
+                <div class="section-header">
+                    <h2>นิทานแนะนำ</h2>
+                </div>
+
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                    <button class="filter-btn" data-filter="ai">โหมด AI</button>
+                    <button class="filter-btn" data-filter="offline">ออฟไลน์</button>
+                    <button class="filter-btn" data-filter="adventure">ผจญภัย</button>
+                    <button class="filter-btn" data-filter="fantasy">แฟนตาซี</button>
+                </div>
+
+                <div class="story-grid" id="story-grid">
+
+                    <!-- 1: Fantasy / AI ★ NEW -->
+                    <div class="story-card" data-category="fantasy ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'ป่าเวทมนตร์')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>การผจญภัยในป่าเวทมนตร์</h3>
+                            <button class="story-mode-badge ai" onclick="startGame('AI_STORY', 'ป่าเวทมนตร์')">โหมด AI
+                                ✦</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                8.5k
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2: Offline / Adventure -->
+                    <div class="story-card" data-category="offline adventure">
+                        <div class="story-img-wrap" onclick="startGame('OFFLINE', 'มดแดงยอดกตัญญู')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>ตำนานมดแดงยอดกตัญญู</h3>
+                            <button class="story-mode-badge offline"
+                                onclick="startGame('OFFLINE', 'มดแดงยอดกตัญญู')">ออฟไลน์</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                2.1k
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3: Sci-Fi / AI ★ NEW -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'มดแดงนักรบในอวกาศ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1446776877081-d282a0f896e2?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>มดแดงนักรบในอวกาศ</h3>
+                            <button class="story-mode-badge ai"
+                                onclick="startGame('AI_STORY', 'มดแดงนักรบในอวกาศ')">โหมด AI ✦</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                5.3k
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4: Romance / AI ★ NEW -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'รักแรกพบในสวนซากุระ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                            <span class="new-badge">เรื่องใหม่</span>
+                        </div>
+                        <div class="story-meta">
+                            <h3>รักแรกพบในสวนซากุระ</h3>
+                            <button class="story-mode-badge ai"
+                                onclick="startGame('AI_STORY', 'รักแรกพบในสวนซากุระ')">โหมด AI ✦</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                12.4k
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5: Horror / AI -->
+                    <div class="story-card" data-category="ai">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'คฤหาสน์ร้างสยองขวัญ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>คืนสยองในคฤหาสน์ร้าง</h3>
+                            <button class="story-mode-badge ai"
+                                onclick="startGame('AI_STORY', 'คฤหาสน์ร้างสยองขวัญ')">โหมด AI ✦</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                980
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6: Adventure / AI -->
+                    <div class="story-card" data-category="ai adventure">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'ผจญภัยในเกาะสมบัติ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>ผจญภัยในเกาะสมบัติแห่งทะเลใต้</h3>
+                            <button class="story-mode-badge ai"
+                                onclick="startGame('AI_STORY', 'ผจญภัยในเกาะสมบัติ')">โหมด AI ✦</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                3.7k
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7: Comedy / Offline -->
+                    <div class="story-card" data-category="offline">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'มดตลกกับผีเสื้อ')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1585951237318-9ea5e175b891?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>มดตลกกับเพื่อนซี้ผีเสื้อ</h3>
+                            <button class="story-mode-badge offline"
+                                onclick="startGame('AI_STORY', 'มดตลกกับผีเสื้อ')">ออฟไลน์</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                340
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8: Fantasy / Offline -->
+                    <div class="story-card" data-category="fantasy offline">
+                        <div class="story-img-wrap" onclick="startGame('AI_STORY', 'อัศวินมังกร')">
+                            <div class="story-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=600&auto=format&fit=crop');">
+                            </div>
+                        </div>
+                        <div class="story-meta">
+                            <h3>อัศวินมังกรแห่งอาณาจักรลับ</h3>
+                            <button class="story-mode-badge offline"
+                                onclick="startGame('AI_STORY', 'อัศวินมังกร')">ออฟไลน์</button>
+                            <div class="card-likes">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="#e53935">
+                                    <path
+                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                </svg>
+                                1.2k
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- GAME VIEW -->
+    <div id="game-view">
+        <div class="main-container">
+            <div class="game-panel">
+                <div id="loading-overlay">
+                    <div class="spinner"></div>
+                    <div id="loading-text">กำลังโหลด...</div>
+                </div>
+
+                <div class="game-header">
+                    <h2 id="game-title">ชื่อเรื่อง</h2>
+                    <button class="exit-btn" onclick="exitGame()">← ออกจากเกม</button>
+                </div>
+
+                <div class="scene-img-container">
+                    <img id="scene-img" class="scene-img" src="" alt="Scene Image">
+                </div>
+
+                <div class="story-display" id="story-display"></div>
+                <div class="choice-list" id="choice-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Red Ant Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
