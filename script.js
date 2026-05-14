@@ -149,6 +149,12 @@ function renderStory(data) {
     const choiceBox = document.getElementById('choice-list');
     choiceBox.innerHTML = '';
 
+    // ── Show / hide Director Mode based on story state ──
+    const directorSection = document.querySelector('.director-mode-section');
+    if (directorSection) {
+        directorSection.style.display = data.is_ending ? 'none' : '';
+    }
+
     if (data.is_ending) {
         // Build personality stat bars if AI returned stats
         if (data.stats && Array.isArray(data.stats) && data.stats.length > 0) {
@@ -213,6 +219,19 @@ async function playVoice(text) {
             await currentAudio.play().catch(e => console.log("Voice Play Interrupted"));
         }
     } catch (e) { console.error("Voice Error:", e); }
+}
+
+// ── DIRECTOR MODE ──────────────────────────────────────────────────
+function submitDirectorText() {
+    const textarea = document.getElementById('director-textarea');
+    const text = textarea.value.trim();
+    if (!text) {
+        textarea.classList.add('director-textarea--shake');
+        setTimeout(() => textarea.classList.remove('director-textarea--shake'), 500);
+        return;
+    }
+    textarea.value = '';
+    processTurn(text);
 }
 
 // ── FILTER BAR LOGIC ──────────────────────────────────────────────
