@@ -104,34 +104,44 @@ async function processTurn(action) {
 
     renderStory(data);
 
-    // 🎨 ระบบเจนภาพสด (Fixed Version 2026 - ล็อคสไตล์นิทาน)
+    // 🎨 ระบบเจนภาพ (Cloudflare Workers AI → Unsplash fallback)
     const sceneImg = document.getElementById('scene-img');
     const imgPrompt = data.image_prompt || currentTheme;
 
+    const FALLBACK_IMAGES = [
+        'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800', // Magic Forest
+        'https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=800', // Castle
+        'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?q=80&w=800'  // Treasure
+    ];
+
+    const useFallback = () => {
+        const fallback = FALLBACK_IMAGES[Math.floor(Math.random() * FALLBACK_IMAGES.length)];
+        sceneImg.src = fallback;
+        sceneImg.style.opacity = '1';
+    };
+
     if (imgPrompt) {
-        const randomSeed = Math.floor(Math.random() * 1000000);
-
-        const fixedPrompt = `Cute storybook style, ${imgPrompt}`;
-
-        const imageUrl = `https://pollinations.ai/p/${encodeURIComponent(fixedPrompt)}?width=800&height=450&model=flux&nologo=true&seed=${randomSeed}`;
-
-        console.log("Image URL ที่ล็อคสไตล์แล้ว:", imageUrl);
-
         sceneImg.style.opacity = '0';
+        try {
+            const imgRes = await fetch('https://redant-ojq8.onrender.com/api/generate-image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: imgPrompt })
+            });
 
-        const tempImg = new Image();
-        tempImg.src = imageUrl;
-        tempImg.onload = () => {
-            sceneImg.src = imageUrl;
-            sceneImg.style.opacity = '1';
-        };
+            if (!imgRes.ok) throw new Error(`HTTP ${imgRes.status}`);
 
-        // 🚨 แผนสำรองถ้า AI เจนรูปไม่สำเร็จ
-        tempImg.onerror = () => {
-            // ใช้รูป Unsplash ธีม Fantasy แทน
-            sceneImg.src = `https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop&sig=${randomSeed}`;
-            sceneImg.style.opacity = '1';
-        };
+            const imgData = await imgRes.json();
+            if (imgData.imageUrl) {
+                sceneImg.src = imgData.imageUrl;
+                sceneImg.style.opacity = '1';
+            } else {
+                useFallback();
+            }
+        } catch (imgErr) {
+            console.warn('Image gen failed, using fallback:', imgErr);
+            useFallback();
+        }
     }
 
     // 🔊 เสียงพากย์ (เช็คสวิตช์ก่อนยิงพ้อยต์)
