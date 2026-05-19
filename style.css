@@ -389,28 +389,26 @@ header {
     border-radius: inherit;
 }
 
-/* Image layer 1 (base) — magical forest */
+/* Image layer 1 (base) — static magical forest */
 .preview-img {
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400&auto=format&fit=crop');
+    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     border-radius: inherit;
-    animation: fantasy-fade 15s ease-in-out infinite 0s;
 }
 
-/* Image layer 2 — cosmic / space warrior */
+/* Image layer 2 — magic book */
 .preview-img::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1446776877081-d282a0f896e2?q=80&w=400&auto=format&fit=crop');
+    background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     border-radius: inherit;
-    animation: fantasy-fade 15s ease-in-out infinite 5s;
-    opacity: 0;
+    animation: smooth-crossfade 15s infinite;
 }
 
 /* Image layer 3 — dark gothic castle */
@@ -418,40 +416,30 @@ header {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=400&auto=format&fit=crop');
+    background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=800&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     border-radius: inherit;
-    animation: fantasy-fade 15s ease-in-out infinite 10s;
-    opacity: 0;
+    animation: smooth-crossfade 15s infinite 5s;
 }
 
-/* Staggered cross-fade: each image fades in, holds, fades out */
-@keyframes fantasy-fade {
-    0% {
+/* New smooth fade animation */
+@keyframes smooth-crossfade {
+
+    0%,
+    25% {
         opacity: 0;
     }
 
-    8% {
+    35%,
+    65% {
         opacity: 1;
     }
 
-    /* fade in */
-    30% {
-        opacity: 1;
-    }
-
-    /* hold */
-    40% {
-        opacity: 0;
-    }
-
-    /* fade out */
+    75%,
     100% {
         opacity: 0;
     }
-
-    /* stay off until next cycle */
 }
 
 /* Sparkles float above the images */
