@@ -275,7 +275,11 @@ function startVoiceCommand() {
 
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript.trim();
-        if (transcript) processTurn(transcript);
+        if (transcript) {
+            const input = document.getElementById('custom-action-input');
+            input.value = transcript;
+            input.focus();
+        }
     };
 
     recognition.start();
