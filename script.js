@@ -1,5 +1,5 @@
 // ── GAME LOGIC ────────────────────────────────────────────────────────────────
-const BOTNOI_TOKEN = "SmFdAPcc8g4D7lWauhzhgerpxsge4bII";
+const BOTNOI_TOKEN = "pNTs7pXytZNb3p27DVyJQeRKzbSERROx";
 let currentHistory = "";
 let turnCount = 0;
 let currentAudio = null;
