@@ -149,10 +149,14 @@ function renderStory(data) {
     const choiceBox = document.getElementById('choice-list');
     choiceBox.innerHTML = '';
 
-    // ── Show / hide Director Mode based on story state ──
+    // ── Show / hide Director Mode + Custom Action based on story state ──
     const directorSection = document.querySelector('.director-mode-section');
     if (directorSection) {
         directorSection.style.display = data.is_ending ? 'none' : '';
+    }
+    const customActionArea = document.querySelector('.custom-action-area');
+    if (customActionArea) {
+        customActionArea.style.display = data.is_ending ? 'none' : '';
     }
 
     if (data.is_ending) {
@@ -232,6 +236,49 @@ function submitDirectorText() {
     }
     textarea.value = '';
     processTurn(text);
+}
+
+// ── CUSTOM ACTION (Open-Ended RPG) ─────────────────────────────────
+function submitCustomAction() {
+    const input = document.getElementById('custom-action-input');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    processTurn(text);
+}
+
+// Enter key submits the custom action input
+document.getElementById('custom-action-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        submitCustomAction();
+    }
+});
+
+// ── VOICE COMMAND (SpeechRecognition) ─────────────────────────────
+function startVoiceCommand() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        alert('เบราว์เซอร์นี้ไม่รองรับการสั่งงานด้วยเสียง กรุณาใช้ Chrome');
+        return;
+    }
+
+    const micBtn = document.getElementById('mic-btn');
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'th-TH';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => micBtn.classList.add('listening');
+    recognition.onend = () => micBtn.classList.remove('listening');
+    recognition.onerror = () => micBtn.classList.remove('listening');
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript.trim();
+        if (transcript) processTurn(transcript);
+    };
+
+    recognition.start();
 }
 
 // ── FILTER BAR LOGIC ──────────────────────────────────────────────

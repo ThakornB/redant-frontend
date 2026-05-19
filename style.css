@@ -1351,6 +1351,118 @@ header {
 }
 
 /* ════════════════════════════════════════════
+   CUSTOM ACTION AREA (Open-Ended RPG input)
+════════════════════════════════════════════ */
+.custom-action-area {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    animation: content-fade 0.5s ease both;
+}
+
+.custom-input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#custom-action-input {
+    flex: 1;
+    height: 48px;
+    padding: 0 20px;
+    border: 1.5px solid var(--border-input);
+    border-radius: var(--radius-btn);
+    font-size: 14px;
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+    background: var(--bg-input);
+    color: var(--text-head);
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color var(--speed), box-shadow var(--speed), background var(--speed);
+}
+
+#custom-action-input::placeholder {
+    color: var(--text-subtle);
+}
+
+#custom-action-input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px var(--brand-glow), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] #custom-action-input {
+    background: #252220;
+    border-color: #3a3530;
+    color: #E8E0D5;
+}
+
+[data-theme="dark"] #custom-action-input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(255, 126, 39, 0.18);
+}
+
+.mic-btn,
+.send-action-btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-input);
+    background: var(--bg-card);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--speed), border-color var(--speed), transform 0.18s, box-shadow 0.18s;
+}
+
+.mic-btn:hover {
+    background: var(--brand-light);
+    border-color: var(--brand);
+    transform: scale(1.1);
+    box-shadow: 0 4px 14px var(--brand-glow);
+}
+
+.send-action-btn {
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    border-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: var(--shadow-btn);
+}
+
+.send-action-btn:hover {
+    transform: scale(1.1) translateY(-1px);
+    box-shadow: 0 8px 24px rgba(255, 126, 39, 0.5);
+    filter: brightness(1.06);
+}
+
+.send-action-btn:active,
+.mic-btn:active {
+    transform: scale(0.93);
+}
+
+/* Listening pulse animation */
+@keyframes mic-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 126, 39, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 126, 39, 0);
+    }
+}
+
+.mic-btn.listening {
+    background: var(--brand);
+    border-color: var(--brand-dark);
+    animation: mic-pulse 1s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════ */
 footer {

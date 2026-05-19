@@ -734,6 +734,16 @@
                         </button>
                     </div>
                 </div>
+
+                <div class="custom-action-area">
+                    <p class="choice-label">หรือทำสิ่งที่คุณต้องการ...</p>
+                    <div class="custom-input-row">
+                        <input type="text" id="custom-action-input" placeholder="พิมพ์สิ่งที่คุณอยากทำที่นี่...">
+                        <button id="mic-btn" class="mic-btn" onclick="startVoiceCommand()"
+                            title="พูดสิ่งที่จะทำ">🎤</button>
+                        <button class="send-action-btn" onclick="submitCustomAction()">➤</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
